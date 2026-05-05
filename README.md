@@ -4,6 +4,9 @@ Este repositorio implementa o Trabalho 2 da disciplina de Engenharia de Dados. O
 
 O fluxo parte de quatro tabelas relacionais de uma base de vendas chamada `LojaDB`, extrai os dados para CSV no bucket `landing-zone` do MinIO, converte os arquivos para Delta Lake no bucket `bronze` e demonstra operacoes DML com historico e time travel.
 
+
+Acesse a documentação online MkDocs em [https://lorenbou.github.io/spark-delta-minio/](https://lorenbou.github.io/spark-delta-minio/)
+
 ## Arquitetura do pipeline
 
 ```text

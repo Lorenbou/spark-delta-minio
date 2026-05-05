@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Execucao - Trabalho 2 - Spark, MinIO, SQL Server e Delta Lake</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Execucao";
+        var mkdocs_page_input_path = "execucao.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Trabalho 2 - Spark, MinIO, SQL Server e Delta Lake
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Inicio</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../arquitetura/">Arquitetura</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Execucao</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-subir-os-containers">1. Subir os containers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-configurar-ambiente">2. Configurar ambiente</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-executar-notebooks">3. Executar notebooks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-abrir-esta-documentacao">4. Abrir esta documentacao</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../notebooks/">Notebooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tabelas-gerenciadas/">Tabelas gerenciadas</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Trabalho 2 - Spark, MinIO, SQL Server e Delta Lake</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Execucao</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="execucao">Execucao</h1>
+<h2 id="1-subir-os-containers">1. Subir os containers</h2>
+<pre><code class="language-bash">docker compose up -d
+</code></pre>
+<p>Servicos:</p>
+<ul>
+<li>SQL Server: <code>localhost:1433</code></li>
+<li>MinIO API: <code>http://localhost:9020</code></li>
+<li>MinIO Console: <code>http://localhost:9021</code></li>
+</ul>
+<p>Credenciais padrao:</p>
+<table>
+<thead>
+<tr>
+<th>Servico</th>
+<th>Usuario</th>
+<th>Senha</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL Server</td>
+<td><code>sa</code></td>
+<td><code>SqlServer@2025!</code></td>
+</tr>
+<tr>
+<td>MinIO</td>
+<td><code>minioadmin</code></td>
+<td><code>minioadmin</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-configurar-ambiente">2. Configurar ambiente</h2>
+<pre><code class="language-bash">cp .env.example .env
+uv venv
+source .venv/bin/activate
+uv sync
+</code></pre>
+<p>No Windows PowerShell:</p>
+<pre><code class="language-powershell">copy .env.example .env
+uv venv
+.venv\Scripts\Activate.ps1
+uv sync
+</code></pre>
+<h2 id="3-executar-notebooks">3. Executar notebooks</h2>
+<p>Execute nesta ordem:</p>
+<ol>
+<li><code>notebook/00_setup_sqlserver.ipynb</code></li>
+<li><code>notebook/01_sqlserver_to_minio_csv.ipynb</code></li>
+<li><code>notebook/02_csv_to_delta.ipynb</code></li>
+<li><code>notebook/03_dml_delta.ipynb</code></li>
+</ol>
+<h2 id="4-abrir-esta-documentacao">4. Abrir esta documentacao</h2>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<p>Acesse <code>http://127.0.0.1:8000</code>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../arquitetura/" class="btn btn-neutral float-left" title="Arquitetura"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../notebooks/" class="btn btn-neutral float-right" title="Notebooks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../arquitetura/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../notebooks/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
