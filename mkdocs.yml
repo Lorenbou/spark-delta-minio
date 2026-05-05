@@ -1,0 +1,10 @@
+site_name: Trabalho 2 - Spark, MinIO, SQL Server e Delta Lake
+site_description: Documentacao curta do pipeline do Trabalho 2
+theme:
+  name: readthedocs
+nav:
+  - Inicio: index.md
+  - Arquitetura: arquitetura.md
+  - Execucao: execucao.md
+  - Notebooks: notebooks.md
+  - Tabelas gerenciadas: tabelas-gerenciadas.md

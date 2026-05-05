@@ -1,0 +1,51 @@
+id,nome_produto,categoria,preco,estoque,ativo
+1,Insulated Cooler,Outdoor,39.99,1,false
+2,Organic Baby Carrots,Food - Fresh Produce,2.99,2,true
+3,Hibiscus Tea Bags,Food - Beverages,3.79,3,false
+4,Spinach Artichoke Dip,Food - Snacks,4.99,4,true
+5,Knitted Infinity Scarf,Clothing - Accessories,29.99,5,true
+6,Spiced Pumpkin Soup,Food - Canned Soups,3.99,6,false
+7,Sliced Olives,Food - Condiments,1.99,7,true
+8,Pineapple Salsa,Food - Condiments,4.29,8,true
+9,Compressed Towel Tablets,Travel,12.99,9,true
+10,Electronic Drum Kit,Music,359.99,10,false
+11,Baby Monitor,Baby,79.99,11,true
+12,Rice Pilaf Mix,Food - Grains,2.59,12,false
+13,Aged White Cheddar Popcorn,Food - Snacks,2.99,13,false
+14,Reflective Safety Vest,Safety,19.99,14,true
+15,Chocolate Mint Cookies,Food - Baking,2.29,15,true
+16,Coconut Curry Lentil Soup,Food - Canned Goods,3.99,16,true
+17,Cranberry Orange Juice,Food - Beverages,2.49,17,true
+18,Legging Pants,Clothing - Activewear,34.99,18,true
+19,Lentils,Food - Grains,2.99,19,true
+20,Coconut Oil Spray,Food - Cooking Oils,4.99,20,true
+21,Digital Stopwatch Timer,Fitness,12.99,21,false
+22,Spiced Pumpkin Soup,Food - Canned Soups,3.99,22,true
+23,Kids' Gardening Kit,Toys,24.99,23,false
+24,Granola,Food - Breakfast,4.79,24,false
+25,Luxury Bath Salts,Beauty,19.99,25,false
+26,Electric Kettle with Temperature Control,Kitchen,49.99,26,true
+27,Wrap Jumpsuit,Clothing - Jumpsuits,54.99,27,false
+28,Avocados,Food - Produce,1.5,28,false
+29,Kettle BBQ Grill,Outdoor,99.99,29,false
+30,Eco-Friendly Disposable Plates,Kitchen,22.99,30,false
+31,Coconut Curry Lentils,Food - Canned Goods,5.79,31,false
+32,Pizza Stone,Kitchen,29.99,32,false
+33,Outdoor Adventure Backpack,Outdoor,59.99,33,false
+34,Electric Can Opener,Kitchen,29.99,34,false
+35,Heated Throw Blanket,Home,49.99,35,false
+36,Handcrafted Wooden Coasters,Home,19.99,36,true
+37,Apple Cinnamon Breakfast Muffins,Food - Bakery,3.49,37,false
+38,Dog Collar,Pets,15.99,38,true
+39,Electric Screwdriver,Tools,59.99,39,false
+40,Raisin Cinnamon Granola,Food - Cereals,3.79,40,true
+41,Mint Chocolate Chip Ice Cream,Food - Frozen Desserts,4.99,41,false
+42,Luxury Memory Foam Mattress Topper,Home,129.99,42,true
+43,Pumpkin Ice Cream,Food - Frozen Foods,4.99,43,false
+44,Wall Decals for Kids,Home,24.99,44,false
+45,Set of Silicone Cooking Utensils,Kitchen,29.99,45,true
+46,Dish Rack,Kitchen,24.99,46,true
+47,Grapes (red),Food - Produce,3.49,47,true
+48,Organic Whole Wheat Flour,Food - Baking Goods,2.99,48,true
+49,Nut Butter Cups,Food - Snacks,3.99,49,false
+50,Coconut Lime Rice,Food - Sides,2.99,50,false
