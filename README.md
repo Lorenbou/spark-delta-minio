@@ -1,8 +1,8 @@
-# Trabalho 2 - Apache Spark com MinIO, SQL Server e Delta Lake
+# Apache Spark com MinIO, SQL Server e Delta Lake
 
-Este repositorio implementa o Trabalho 2 da disciplina de Engenharia de Dados. O objetivo e construir um pipeline local usando SQL Server, MinIO, Apache Spark e Delta Lake.
+Pipeline local usando SQL Server, MinIO, Apache Spark e Delta Lake.
 
-O fluxo parte de quatro tabelas relacionais de uma base de vendas chamada `LojaDB`, extrai os dados para CSV no bucket `landing-zone` do MinIO, converte os arquivos para Delta Lake no bucket `bronze` e demonstra operacoes DML com historico e time travel.
+## Requisitos
 
 
 
@@ -82,60 +82,44 @@ spark-delta-minio-sqlserver/
 |-- pyproject.toml
 `-- README.md
 ```
+- Docker
+- Python 3.11+
+- uv (gerenciador de pacotes Python)
 
 ## Como executar
 
-### 1. Subir SQL Server e MinIO
+### 1. Subir os serviços
 
 ```bash
 docker compose up -d
 ```
 
-Servicos principais:
+Serviços:
+- SQL Server: `localhost:1433` (sa / SqlServer@2025!)
+- MinIO API: `http://localhost:9020` (minioadmin / minioadmin)
+- MinIO Console: `http://localhost:9021`
 
-| Servico | URL/porta | Usuario | Senha |
-|---|---:|---|---|
-| SQL Server | `localhost:1433` | `sa` | `SqlServer@2025!` |
-| MinIO API | `http://localhost:9020` | `minioadmin` | `minioadmin` |
-| MinIO Console | `http://localhost:9021` | `minioadmin` | `minioadmin` |
-
-### 2. Criar arquivo `.env`
+### 2. Configurar ambiente
 
 ```bash
 cp .env.example .env
-```
-
-O arquivo deve usar:
-
-```env
-DB_DATABASE=LojaDB
-MINIO_LANDING_BUCKET=landing-zone
-MINIO_BRONZE_BUCKET=bronze
-```
-
-### 3. Preparar ambiente Python
-
-```bash
 uv venv
 source .venv/bin/activate
 uv sync
 ```
 
-No Windows PowerShell:
+### 3. Executar os notebooks
 
-```powershell
-uv venv
-.venv\Scripts\Activate.ps1
-uv sync
-```
+Execute em ordem:
 
-### 4. Executar os notebooks em ordem
+1. `notebook/00_setup_sqlserver.ipynb` - Cria o banco e carrega os CSVs
+2. `notebook/01_sqlserver_to_minio_csv.ipynb` - Exporta dados para MinIO
+3. `notebook/02_csv_to_delta.ipynb` - Converte CSV para Delta Lake
+4. `notebook/03_dml_delta.ipynb` - Demonstra DML, history e time travel
 
-1. `notebook/00_setup_sqlserver.ipynb`
-2. `notebook/01_sqlserver_to_minio_csv.ipynb`
-3. `notebook/02_csv_to_delta.ipynb`
-4. `notebook/03_dml_delta.ipynb`
+## Estrutura
 
+<<<<<<< HEAD
 ## O que cada notebook faz
 
 | Notebook | Funcao |
@@ -214,3 +198,8 @@ Depois acesse:
 ```text
 http://127.0.0.1:8000
 ```
+=======
+- `data/` - Arquivos CSV de origem
+- `notebook/` - Notebooks Jupyter do pipeline
+- `docs/` - Documentação MkDocs
+>>>>>>> e6746c8 (feat: ajuste de projeto)

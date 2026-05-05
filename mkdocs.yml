@@ -1,5 +1,5 @@
-site_name: Trabalho 2 - Spark, MinIO, SQL Server e Delta Lake
-site_description: Documentacao curta do pipeline do Trabalho 2
+site_name: Spark Delta MinIO
+site_description: Pipeline Spark com Delta Lake e MinIO
 theme:
   name: readthedocs
 nav:
